@@ -1,6 +1,38 @@
-# AbpFrontend
+# Cuteware
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+## Members
+Vitor Muneretto Tinelli, Rafael Garcia de Rocchi, Gabriel Mensor da Rosa, Brendon Cordova Silveira
+
+# Project Description
+
+**Cuteware** is an enterprise resource planning (ERP) system developed to optimize administrative, financial, and operational processes. It integrates departments such as production, sales, and inventory, providing a unified and efficient view of operations.
+
+# Project Objective
+
+The primary goal of **Cuteware** is to address the challenges faced by companies in the upholstery sector in managing their internal processes. The solution aims to automate manual tasks, reduce operational errors, and provide integrated and efficient management, enabling managers to make more informed and strategic decisions.
+
+# Project Structure
+
+## Main Screens and Features
+
+1. **Login Screen**
+   - User authentication with access control based on permissions.
+
+2. **Dashboard**
+   - Overview of operations, including financial and operational indicators.
+
+3. **Product Registration**
+   - Register and manage products, including name, description, price, and available stock.
+
+4. **Supplier Registration**
+   - Manage supplier information, facilitating the purchasing process and inventory control.
+
+5. **Inventory Control**
+   - Monitor product entries and exits, with alerts for critical stock levels.
+
+6. **Customer Registration**
+   - Manage customer information, facilitating the sales process and inventory control.
+
 
 ## Development server
 
