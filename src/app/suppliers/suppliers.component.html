@@ -1,1 +1,28 @@
-<p>suppliers works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CNPJ</th>
+            <th>E-mail</th>
+            <th>Contato</th>
+            <th>Endereço</th>
+            <th>Criado em</th>
+            <th>Atualizado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of suppliers; track $index){
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.cnpj}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.contact}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.createdAt}}</td>
+                <td>{{item.updatedAt}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

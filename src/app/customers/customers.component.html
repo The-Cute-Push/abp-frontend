@@ -1,1 +1,22 @@
-<p>customers works!</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Criado em</th>
+            <th>Atualizado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of customers; track $index){
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.cpf}}</td>
+                <td>{{item.createdAt}}</td>
+                <td>{{item.updatedAt}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
