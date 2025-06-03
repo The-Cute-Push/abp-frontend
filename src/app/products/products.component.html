@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Foto</th>
+            <th>Nome</th>
+            <th>Código</th>
+            <th>Preço</th>
+            <th>Custo</th>
+            <th>Quantidade</th>
+            <th>Criado em</th>
+            <th>Atualizado em</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of products; track $index){
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.photo}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.code}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.cost}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.createdAt}}</td>
+                <td>{{item.updatedAt}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
