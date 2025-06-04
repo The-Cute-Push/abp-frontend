@@ -1,7 +1,7 @@
 # Cuteware
 
 ## Members
-Vitor Muneretto Tinelli, Rafael Garcia de Rocchi, Gabriel Mensor da Rosa, Brendon Cordova Silveira
+Vitor Muneretto Tinelli, Rafael Garcia de Rocchi, Gabriel Mensor da Rosa, Brendon Cordova Silveira, Lucas De Bitencourt Frasson
 
 # Project Description
 
