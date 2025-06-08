@@ -1,0 +1,72 @@
+header {
+    background-color: #232222;
+    height: 12vh;
+    margin: auto;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header > h1 {
+    color: coral;
+}
+
+nav {
+    background-color: #232222;
+    margin: auto;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+}
+
+nav > a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+nav > a:hover {
+    background-color: coral;
+    transition: all 1s ease;
+}
+
+.form_container {
+    width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.btn_salvar {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn_salvar:hover {
+    background-color: #4ffa4f;
+}

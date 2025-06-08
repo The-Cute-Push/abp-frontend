@@ -1,0 +1,24 @@
+<header>
+    <h1>Cadastro de Cliente</h1>
+  </header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/products">Produtos</a>
+    <a href="/suppliers">Fornecedores</a>
+    <a href="/customers">Clientes</a>
+  </nav>
+  
+  <div class="form_container">
+    <h2>Preencha os dados do cliente</h2>
+  
+    <form (ngSubmit)="salvar()">
+      <label for="name">Nome:</label>
+      <input id="name" [(ngModel)]="newCustomer.name" name="name" required>
+  
+      <label for="cpf">CPF:</label>
+      <input id="cpf" [(ngModel)]="newCustomer.cpf" name="cpf" required>
+  
+      <button type="submit" class="btn_salvar">Salvar</button>
+    </form>
+  </div>
+  
