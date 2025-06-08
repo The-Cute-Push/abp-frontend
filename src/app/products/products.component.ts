@@ -62,6 +62,8 @@ export class ProductsComponent {
     { id: "50", name: "Banana", code: "8A83D45GCDNJ", price: "20", cost: "10", quantity: "4", photo: "url", createdAt: "02/06/2025", updatedAt: "02/06/2025" },
 
   ]
+
+  // Modal e lógica de cadastrar produto
   mostrarModalCadastro = false;
 
   setMostrarModalCadastro() {
@@ -78,7 +80,7 @@ export class ProductsComponent {
     return codigo;
   }
 
-  productModel = { id: "", name: "", code: "", price: "", cost: "", quantity: "", photo: "", createdAt: "", updatedAt: "" };
+  productModel = { id: "", name: "", code: "", price: "", cost: "", quantity: "", photo: "url", createdAt: "", updatedAt: "" };
 
   salvarProduto() {
     const novoProduto = { ...this.productModel };
@@ -106,11 +108,37 @@ export class ProductsComponent {
       price: '',
       cost: '',
       quantity: '',
-      photo: '',
+      photo: 'url',
       createdAt: '',
       updatedAt: ''
     };
 
     this.mostrarModalCadastro = false;
   }
+
+
+  // Modal e lógica de exclusão de produto
+  showDeleteModal = false
+  productToDelete: any = null;
+
+
+  openDeleteModal(produto: any) {
+    this.productToDelete = produto;
+    this.showDeleteModal = true;
+  }
+
+  confirmDeletion() {
+    this.products = this.products.filter(p => p.id !== this.productToDelete.id);
+    this.showDeleteModal = false;
+    this.productToDelete = null;
+    console.log("Produto excluído com sucesso");
+    console.log(this.products);
+  }
+
+  cancelDeletion() {
+    this.showDeleteModal = false;
+    this.productToDelete = null;
+    console.log("Exclusão cancelada");
+  }
+
 }

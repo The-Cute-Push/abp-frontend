@@ -45,7 +45,7 @@
                 <td>{{item.createdAt}}</td>
                 <td>{{item.updatedAt}}</td>
                 <td><button class="btn_alterar">Alterar</button></td>
-                <td><button class="btn_excluir">Excluir</button></td>
+                <td><button class="btn_excluir" (click)="openDeleteModal(item)">Excluir</button></td>
             </tr>
             }
         </tbody>
@@ -79,6 +79,19 @@
       <div class="form-actions">
         <button type="submit">Salvar</button>
         <button type="button" (click)="setMostrarModalCadastro()">Fechar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showDeleteModal">
+  <div class="modal-box">
+    <h2>Exclusão de Produto</h2>
+    <form (submit)="confirmDeletion()">
+      <p>Você tem certeza que deseja excluir <strong>{{ productToDelete?.name }}</strong> id <strong>{{ productToDelete?.id }}</strong></p>
+      <div class="form-actions">
+        <button type="submit" id="btn-delete">Excluir</button>
+        <button type="button" (click)="cancelDeletion()" id="btn-close">Fechar</button>
       </div>
     </form>
   </div>
