@@ -11,6 +11,7 @@ body {
 
 .header{
   background-color: rgb(39, 144, 214);
+  position: relative;
   width: 99%;
   height: 5vh;
   padding-left: 0.5%;
