@@ -9,4 +9,15 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'abp-frontend';
+  modalAberto = false;
+  cliente = { nome: '' };
+
+  abrirModal() {
+    this.modalAberto = true;
+  }
+
+  fecharModal() {
+    this.modalAberto = false;
+  }
+
 }

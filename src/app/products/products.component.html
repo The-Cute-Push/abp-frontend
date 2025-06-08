@@ -14,7 +14,7 @@
             <button>🔎</button>
             <input type="text" placeholder="O que você está procurando?">
         </div>
-        <button class="btn_add">Adicionar produto</button>
+        <button class="btn_add" (click)="setMostrarModalCadastro()">Adicionar produto</button>
     </div>
     <table>
         <thead>
@@ -54,3 +54,32 @@
 <footer>
     <p>Todos os direitos reservados a The Cute Push Organization</p>
 </footer>
+
+<div class="modal-overlay" *ngIf="mostrarModalCadastro">
+  <div class="modal-box">
+    <h2>Cadastrar Produto</h2>
+    <form (submit)="salvarProduto()">
+      <div class="form-group">
+        <label>Nome:</label>
+        <input type="text" [(ngModel)]="productModel.name" name="name">
+      </div>
+      <div class="form-group">
+        <label>Preço:</label>
+        <input type="text" [(ngModel)]="productModel.price" name="price">
+      </div>
+      <div class="form-group">
+        <label>Custo:</label>
+        <input type="text" [(ngModel)]="productModel.cost" name="cost">
+      </div>
+      <div class="form-group">
+        <label>Quantidade:</label>
+        <input type="text" [(ngModel)]="productModel.quantity" name="quantity">
+      </div>
+
+      <div class="form-actions">
+        <button type="submit">Salvar</button>
+        <button type="button" (click)="setMostrarModalCadastro()">Fechar</button>
+      </div>
+    </form>
+  </div>
+</div>
