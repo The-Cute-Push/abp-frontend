@@ -5,8 +5,8 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
 import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
+    {path: "", component: LoginComponent},
     {path: "customers", component: CustomersComponent},
     {path: "products", component: ProductsComponent},
     {path: "suppliers", component: SuppliersComponent},
-    {path: "login", component: LoginComponent}
 ];
