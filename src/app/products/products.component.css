@@ -1,249 +1,155 @@
 header {
-    background-color: #232222;
-    height: 12vh;
-    margin: auto;
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-header > h1 {
-    color: coral;
-}
-
-nav {
-    background-color: #232222;
-    margin: auto;
-    width: 1200px;
-    display: flex;
-    align-items: center;
-}
-
-nav > a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-}
-
-nav > a:hover {
-    background-color: coral;
-    transition: all 1s ease;
-}
-
-.titulo_da_tela {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.btn_alterar {
-    background-color: blue;
-    border: none;
-    color: white;
-    padding: 6px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn_excluir {
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 6px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn_add {
-    background-color: green;
-    border: none;
-    color: white;
-    padding: 6px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-.btn_alterar:hover {
-    background-color: #4b4bff;
-}
-
-.btn_excluir:hover {
-    background-color: #ff4545;
-}
-
-.btn_add:hover {
-    background-color: #4ffa4f;
-}
-
-.box_2 {
-    width: 1000px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.box_pesquisa {
-    display: flex;
-    align-items: center;
-}
-
-.box_pesquisa > button {
-    width: 40px;
-    border-radius: 6px 0px 0px 6px;
-    height: 40px;
-    border: none;
-    background-color: #232222;
-    cursor: pointer;
-}
-
-.box_pesquisa > button:hover {
-    background-color: coral;
-}
-
-.box_pesquisa > input {
-    border-radius: 0px 6px 6px 0px;
-    width: 300px;
-    color: white;
-    padding: 5px 10px;
-    height: 30px;
-    border: none;
-    background-color: #232222;
-}
-
-table {
-    width: 1000px;
-    margin: auto;
-    border-collapse: collapse;
-    background-color: white;
-}
-
-.box_1 {
-    min-height: 100vh;
-    width: 1200px;
-    background-color: white;
-    margin: auto;
-    padding: 40px 0px;
-}
-
-td, th {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-tr:hover {
-    background-color: coral;
-}
-
-footer {
-    background-color: #232222;
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: auto;
-}
-
-footer > p {
-    color: white;
-    top: 100%;
-}
-
-/* Daqui em diante são os estilos dos modais */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #232222;
+  height: 12vh;
+  margin: auto;
+  width: 1200px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
 }
 
-.modal-box {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 2rem;
-  width: 90%;
-  max-width: 450px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease-out;
+header>h1 {
+  color: coral;
 }
 
-.modal-box h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #444;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border 0.2s ease;
-}
-
-.form-group input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-.form-actions {
+nav {
+  background-color: #232222;
+  margin: auto;
+  width: 1200px;
   display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
+  align-items: center;
 }
 
-.form-actions button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+nav>a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+nav>a:hover {
+  background-color: coral;
+  transition: all 1s ease;
+}
+
+.screen_title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn_edit {
+  background-color: blue;
   border: none;
-  border-radius: 6px;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-.form-actions button[type="submit"], #btn-close {
-  background-color: #28a745;
+.btn_delete {
+  background-color: red;
+  border: none;
   color: white;
+  padding: 6px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#btn-delete {
-  background-color: #c82333;
+.btn_add {
+  background-color: green;
+  border: none;
   color: white;
+  padding: 6px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-.form-actions button[type="submit"]:hover {
-  background-color: #218838;
+.btn_edit:hover {
+  background-color: #4b4bff;
 }
 
-.form-actions button[type="button"] {
-  background-color: #dc3545;
+.btn_delete:hover {
+  background-color: #ff4545;
+}
+
+.btn_add:hover {
+  background-color: #4ffa4f;
+}
+
+.box_2 {
+  width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search_box {
+  display: flex;
+  align-items: center;
+}
+
+.search_box>button {
+  width: 40px;
+  border-radius: 6px 0px 0px 6px;
+  height: 40px;
+  border: none;
+  background-color: #232222;
+  cursor: pointer;
+}
+
+.search_box>button:hover {
+  background-color: coral;
+}
+
+.search_box>input {
+  border-radius: 0px 6px 6px 0px;
+  width: 300px;
   color: white;
+  padding: 5px 10px;
+  height: 30px;
+  border: none;
+  background-color: #232222;
 }
 
-.form-actions button[type="button"]:hover {
-  background-color: #c82333;
+table {
+  width: 1000px;
+  margin: auto;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.box_1 {
+  min-height: 100vh;
+  width: 1200px;
+  background-color: white;
+  margin: auto;
+  padding: 40px 0px;
+}
+
+td,
+th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: coral;
+}
+
+footer {
+  background-color: #232222;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
+
+footer>p {
+  color: white;
+  top: 100%;
 }

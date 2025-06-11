@@ -10,24 +10,28 @@ export class CustomersComponent {
   customers = [
     { id: "1", name: "Jorge", cpf: "231.345.234-21", createdAt: "02/06/2025", updatedAt: "02/06/2025" },
   ]
-  modalCadastro = false;
-  modalEdicao = false;
-  modalConfirmacao = false;
+  showCreateProductModal = false;
+  showEditModal = false;
+  showDeleteModal = false;
 
-  cliente = { nome: '' };
+  customer = { id: "", name: "", cpf: "", createdAt: "", updatedAt: "" };
 
-  cadastrarCliente() {
-    console.log('Cadastrado:', this.cliente.nome);
-    this.modalCadastro = false;
+  createCustomer() {
+    console.log('Created:', this.customer.name);
+    this.showCreateProductModal = false;
   }
 
-  editarCliente() {
-    console.log('Editado:', this.cliente.nome);
-    this.modalEdicao = false;
+  editCustomer() {
+    console.log('Edited:', this.customer.name);
+    this.showEditModal = false;
   }
 
-  excluirCliente() {
-    console.log('Excluído:', this.cliente.nome);
-    this.modalConfirmacao = false;
+  deleteCustomer() {
+    console.log('Deleted:', this.customer.name);
+    this.showDeleteModal = false;
   }
+
+  toggleCustomerModal() {
+  this.showCreateProductModal = !this.showCreateProductModal;
+}
 }

@@ -31,12 +31,12 @@ nav > a:hover {
     transition: all 1s ease;
 }
 
-.titulo_da_tela {
+.screen_title {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.btn_alterar {
+.btn_edit {
     background-color: blue;
     border: none;
     color: white;
@@ -45,7 +45,7 @@ nav > a:hover {
     cursor: pointer;
 }
 
-.btn_excluir {
+.btn_delete {
     background-color: red;
     border: none;
     color: white;
@@ -64,11 +64,11 @@ nav > a:hover {
     margin-bottom: 20px;
 }
 
-.btn_alterar:hover {
+.btn_edit:hover {
     background-color: #4b4bff;
 }
 
-.btn_excluir:hover {
+.btn_delete:hover {
     background-color: #ff4545;
 }
 
@@ -85,12 +85,12 @@ nav > a:hover {
     margin-bottom: 20px;
 }
 
-.box_pesquisa {
+.search_box {
     display: flex;
     align-items: center;
 }
 
-.box_pesquisa > button {
+.search_box > button {
     width: 40px;
     border-radius: 6px 0px 0px 6px;
     height: 40px;
@@ -99,11 +99,11 @@ nav > a:hover {
     cursor: pointer;
 }
 
-.box_pesquisa > button:hover {
+.search_box > button:hover {
     background-color: coral;
 }
 
-.box_pesquisa > input {
+.search_box > input {
     border-radius: 0px 6px 6px 0px;
     width: 300px;
     color: white;

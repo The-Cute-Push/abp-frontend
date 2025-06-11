@@ -1,48 +1,48 @@
 <header>
-    <h1>Cuteware</h1>
+  <h1>Cuteware</h1>
 </header>
 <nav>
-    <a href="/">Home</a>
-    <a href="/products">Produtos</a>
-    <a href="/suppliers">Fornecedores</a>
-    <a href="/customers">Clientes</a>
+  <a href="/">Home</a>
+  <a href="/products">Produtos</a>
+  <a href="/suppliers">Fornecedores</a>
+  <a href="/customers">Clientes</a>
 </nav>
 <div class="box_1">
-    <h1 class="titulo_da_tela">Cliente</h1>
-    <div class="box_2">
-        <div class="box_pesquisa">
-            <button>🔎</button>
-            <input type="text" placeholder="O que você está procurando?">
-        </div>
-        <button class="btn_add">Adicionar cliente</button>
+  <h1 class="screen_title">Clientes</h1>
+  <div class="box_2">
+    <div class="search_box">
+      <button>🔎</button>
+      <input type="text" placeholder="O que você está procurando?">
     </div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Criado em</th>
-                <th>Atualizado em</th>
-                <th>#</th>
-                <th>#</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (item of customers; track $index){
-            <tr>
-                <td>{{item.id}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.cpf}}</td>
-                <td>{{item.createdAt}}</td>
-                <td>{{item.updatedAt}}</td>
-                <td><button class="btn_alterar">Alterar</button></td>
-                <td><button class="btn_excluir">Excluir</button></td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <button class="btn_add">Add customer</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>CPF</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>#</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of customers; track $index){
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.cpf}}</td>
+        <td>{{item.createdAt}}</td>
+        <td>{{item.updatedAt}}</td>
+        <td><button class="btn_edit">Edit</button></td>
+        <td><button class="btn_delete">Delete</button></td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>
 <footer>
-    <p>Todos os direitos reservados a The Cute Push Organization</p>
+  <p>Todos os direitos reservados a The Cute Push Organization</p>
 </footer>
