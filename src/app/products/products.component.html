@@ -1,56 +1,105 @@
 <header>
-    <h1>ABP Frontend</h1>
+  <h1>Cuteware</h1>
 </header>
 <nav>
-    <a href="/">Home</a>
-    <a href="/products">Produtos</a>
-    <a href="/suppliers">Fornecedores</a>
-    <a href="/customers">Clientes</a>
+  <a href="/">Home</a>
+  <a href="/products">Produtos</a>
+  <a href="/suppliers">Fornecedores</a>
+  <a href="/customers">Clientes</a>
 </nav>
-<div class="box_1">
-    <h1 class="titulo_da_tela">Produtos</h1>
-    <div class="box_2">
-        <div class="box_pesquisa">
-            <button>🔎</button>
-            <input type="text" placeholder="O que você está procurando?">
-        </div>
-        <button class="btn_add">Adicionar produto</button>
+
+<div class="box_one">
+  <h1 class="screen_title">Produtos</h1>
+
+  <div class="box_two">
+    <div class="search_box">
+      <button>🔎</button>
+      <input type="text" placeholder="O que você está procurando?">
     </div>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Foto</th>
-                <th>Nome</th>
-                <th>Código</th>
-                <th>Preço</th>
-                <th>Custo</th>
-                <th>Quantidade</th>
-                <th>Criado em</th>
-                <th>Atualizado em</th>
-                <th>#</th>
-                <th>#</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (item of products; track $index){
-            <tr>
-                <td>{{item.id}}</td>
-                <td>{{item.photo}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.code}}</td>
-                <td>{{item.price}}</td>
-                <td>{{item.cost}}</td>
-                <td>{{item.quantity}}</td>
-                <td>{{item.createdAt}}</td>
-                <td>{{item.updatedAt}}</td>
-                <td><button class="btn_alterar">Alterar</button></td>
-                <td><button class="btn_excluir">Excluir</button></td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <button class="btn_add" (click)="toggleProductModal()">Adicionar produto</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Foto</th>
+        <th>Nome</th>
+        <th>Código</th>
+        <th>Preço</th>
+        <th>Custo</th>
+        <th>Quantidade</th>
+        <th>Criado em</th>
+        <th>Atualizado em</th>
+        <th>#</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of products; track $index) {
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.photo }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.code }}</td>
+        <td>{{ item.price }}</td>
+        <td>{{ item.cost }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.createdAt }}</td>
+        <td>{{ item.updatedAt }}</td>
+        <td><button class="btn_edit">Alterar</button></td>
+        <td><button class="btn_delete" (click)="openDeleteModal(item)">Excluir</button></td>
+      </tr>
+      }
+    </tbody>
+  </table>
 </div>
 <footer>
-    <p>Todos os direitos reservados a ABP Frontend</p>
+  <p>Todos os direitos reservados a The Cute Push Organization</p>
 </footer>
+
+
+<!-- Product Registration Modal -->
+<div class="modal_overlay" *ngIf="showProductFormModal">
+  <div class="modal_box">
+    <h2>Cadastrar Produto</h2>
+    <form (ngSubmit)="saveProduct()">
+      <div class="form_group">
+        <label>Nome:</label>
+        <input type="text" [(ngModel)]="productModel.name" name="name">
+      </div>
+      <div class="form_group">
+        <label>Preço:</label>
+        <input type="text" [(ngModel)]="productModel.price" name="price">
+      </div>
+      <div class="form_group">
+        <label>Custo:</label>
+        <input type="text" [(ngModel)]="productModel.cost" name="cost">
+      </div>
+      <div class="form_group">
+        <label>Quantidade:</label>
+        <input type="text" [(ngModel)]="productModel.quantity" name="quantity">
+      </div>
+
+      <div class="form_actions">
+        <button type="submit">Salvar</button>
+        <button type="button" (click)="toggleProductModal()">Fechar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Product Deletion Modal -->
+<div class="modal_overlay" *ngIf="showDeleteModal">
+  <div class="modal_box">
+    <h2>Exclusão de Produto</h2>
+    <form (submit)="confirmDeletion()">
+      <p>Você tem certeza que deseja excluir <strong>{{ productToDelete?.name }}</strong> id <strong>{{
+          productToDelete?.id }}</strong></p>
+      <div class="form_actions">
+        <button type="submit" id="btn_delete">Excluir</button>
+        <button type="button" (click)="cancelDeletion()" id="btn_close">Fechar</button>
+      </div>
+    </form>
+  </div>
+</div>

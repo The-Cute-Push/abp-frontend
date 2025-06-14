@@ -7,7 +7,31 @@ import { Component } from '@angular/core';
   styleUrl: './customers.component.css'
 })
 export class CustomersComponent {
-    customers = [
-      { id: "1", name: "Jorge", cpf: "231.345.234-21", createdAt: "02/06/2025", updatedAt: "02/06/2025" },
-    ]
+  customers = [
+    { id: "1", name: "Jorge", cpf: "231.345.234-21", createdAt: "02/06/2025", updatedAt: "02/06/2025" },
+  ]
+  showCreateProductModal = false;
+  showEditModal = false;
+  showDeleteModal = false;
+
+  customer = { id: "", name: "", cpf: "", createdAt: "", updatedAt: "" };
+
+  createCustomer() {
+    console.log('Created:', this.customer.name);
+    this.showCreateProductModal = false;
+  }
+
+  editCustomer() {
+    console.log('Edited:', this.customer.name);
+    this.showEditModal = false;
+  }
+
+  deleteCustomer() {
+    console.log('Deleted:', this.customer.name);
+    this.showDeleteModal = false;
+  }
+
+  toggleCustomerModal() {
+  this.showCreateProductModal = !this.showCreateProductModal;
+}
 }
