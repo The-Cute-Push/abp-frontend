@@ -8,7 +8,7 @@ header {
   justify-content: center;
 }
 
-header>h1 {
+header > h1 {
   color: coral;
 }
 
@@ -20,13 +20,13 @@ nav {
   align-items: center;
 }
 
-nav>a {
+nav > a {
   color: white;
   text-decoration: none;
   padding: 10px 20px;
 }
 
-nav>a:hover {
+nav > a:hover {
   background-color: coral;
   transition: all 1s ease;
 }
@@ -90,7 +90,7 @@ nav>a:hover {
   align-items: center;
 }
 
-.search_box>button {
+.search_box > button {
   width: 40px;
   border-radius: 6px 0px 0px 6px;
   height: 40px;
@@ -99,11 +99,11 @@ nav>a:hover {
   cursor: pointer;
 }
 
-.search_box>button:hover {
+.search_box > button:hover {
   background-color: coral;
 }
 
-.search_box>input {
+.search_box > input {
   border-radius: 0px 6px 6px 0px;
   width: 300px;
   color: white;
@@ -128,8 +128,7 @@ table {
   padding: 40px 0px;
 }
 
-td,
-th {
+td, th {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -149,7 +148,79 @@ footer {
   margin: auto;
 }
 
-footer>p {
+footer > p {
   color: white;
   top: 100%;
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+}
+
+.modal_box h2 {
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form_group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form_group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form_actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form_actions button {
+  all: unset;   /* resetar de herdar outros valores */
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.form_actions button.btn_add {
+  background-color: green;
+}
+
+.form_actions button.btn_delete {
+  background-color: red;
+}
+
+.form_actions button.btn_close {
+  background-color: rgb(129, 128, 128);
 }
