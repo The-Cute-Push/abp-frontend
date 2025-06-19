@@ -1,50 +1,107 @@
 <header>
     <h1>Fornecedores</h1>
-</header>
-<nav>
+  </header>
+  
+  <nav>
     <a href="/">Home</a>
     <a href="/products">Produtos</a>
     <a href="/suppliers">Fornecedores</a>
     <a href="/customers">Clientes</a>
-</nav>
-<div class="box_1">
+  </nav>
+  
+  <div class="box_1">
     <h1 class="titulo_da_tela"></h1>
+  
     <div class="box_2">
-        <div class="box_pesquisa">
-            <button>🔎</button>
-            <input type="text" placeholder="O que você está procurando?">
-        </div>
-        <button class="btn_add">Adicionar produto</button>
+      <div class="box_pesquisa">
+        <button>🔎</button>
+        <input type="text" placeholder="O que você está procurando?">
+      </div>
+      <button class="btn_add" (click)="toggleSupplierModal()">Adicionar fornecedor</button>
     </div>
+  
     <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CNPJ</th>
-                <th>E-mail</th>
-                <th>Contato</th>
-                <th>Endereço</th>
-                <th>Criado em</th>
-                <th>Atualizado em</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (item of suppliers; track $index){
-            <tr>
-                <td>{{item.id}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.cnpj}}</td>
-                <td>{{item.email}}</td>
-                <td>{{item.contact}}</td>
-                <td>{{item.address}}</td>
-                <td>{{item.createdAt}}</td>
-                <td>{{item.updatedAt}}</td>
-            </tr>
-            }
-        </tbody>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CNPJ</th>
+          <th>E-mail</th>
+          <th>Contato</th>
+          <th>Endereço</th>
+          <th>Criado em</th>
+          <th>Atualizado em</th>
+          <th>#</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of suppliers; track $index) {
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.cnpj }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.contact }}</td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.createdAt }}</td>
+            <td>{{ item.updatedAt }}</td>
+            <td><button class="btn_alterar">Alterar</button></td>
+            <td><button class="btn_excluir" (click)="openDeleteModal(item)">Excluir</button></td>
+          </tr>
+        }
+      </tbody>
     </table>
-</div>
-<footer>
+  </div>
+  
+  <footer>
     <p>Todos os direitos reservados a ABP Frontend</p>
-</footer>
+  </footer>
+  
+  <!-- Modal de Cadastro de Fornecedor -->
+  <div class="modal_overlay" *ngIf="showSupplierFormModal">
+    <div class="modal_box">
+      <h2>Cadastrar Fornecedor</h2>
+      <form (ngSubmit)="saveSupplier()">
+        <div class="form_group">
+          <label>Nome:</label>
+          <input type="text" [(ngModel)]="supplierModel.name" name="name" />
+        </div>
+        <div class="form_group">
+          <label>CNPJ:</label>
+          <input type="text" [(ngModel)]="supplierModel.cnpj" name="cnpj" />
+        </div>
+        <div class="form_group">
+          <label>Email:</label>
+          <input type="text" [(ngModel)]="supplierModel.email" name="email" />
+        </div>
+        <div class="form_group">
+          <label>Contato:</label>
+          <input type="text" [(ngModel)]="supplierModel.contact" name="contact" />
+        </div>
+        <div class="form_group">
+          <label>Endereço:</label>
+          <input type="text" [(ngModel)]="supplierModel.address" name="address" />
+        </div>
+        <div class="form_actions">
+          <button type="submit" class="btn_add">Salvar</button>
+          <button type="button" class="btn_close" (click)="toggleSupplierModal()">Fechar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal de Exclusão de Fornecedor -->
+  <div class="modal_overlay" *ngIf="showDeleteModal">
+    <div class="modal_box">
+      <h2>Exclusão de Fornecedor</h2>
+      <form (submit)="confirmDeletion()">
+        <p>Deseja excluir o fornecedor <strong>{{ supplierToDelete?.name }}</strong> com id <strong>{{ supplierToDelete?.id }}</strong>?</p>
+        <div class="form_actions">
+          <button type="submit" class="btn_delete">Excluir</button>
+          <button type="button" class="btn_close" (click)="cancelDeletion()">Fechar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
