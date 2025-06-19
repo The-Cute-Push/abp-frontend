@@ -46,7 +46,7 @@
             <td>{{ item.address }}</td>
             <td>{{ item.createdAt }}</td>
             <td>{{ item.updatedAt }}</td>
-            <td><button class="btn_alterar">Alterar</button></td>
+            <td><button class="btn_alterar" (click)="openEditModal(item)">Alterar</button></td>
             <td><button class="btn_excluir" (click)="openDeleteModal(item)">Excluir</button></td>
           </tr>
         }

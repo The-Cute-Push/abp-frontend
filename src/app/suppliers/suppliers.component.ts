@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './suppliers.component.html',
   styleUrl: './suppliers.component.css'
 })
-
 export class SuppliersComponent {
   suppliers = [
     {
@@ -27,7 +26,7 @@ export class SuppliersComponent {
   showSupplierFormModal = false;
   showDeleteModal = false;
   supplierToDelete: any = null;
-
+  isEditing = false; // Flag to check if editing
   supplierModel = {
     id: '',
     name: '',
@@ -41,18 +40,40 @@ export class SuppliersComponent {
 
   toggleSupplierModal() {
     this.showSupplierFormModal = !this.showSupplierFormModal;
+    if (!this.showSupplierFormModal) {
+      this.resetSupplierModel();
+    }
   }
 
   saveSupplier() {
-    const newSupplier = { ...this.supplierModel };
-    newSupplier.id = (this.suppliers.length + 1).toString();
+    if (this.isEditing) {
+      const index = this.suppliers.findIndex(s => s.id === this.supplierModel.id);
+      if (index !== -1) {
+        const today = new Date().toLocaleDateString('pt-BR');
+        this.supplierModel.updatedAt = today;
+        this.suppliers[index] = { ...this.supplierModel };
+      }
+    } else {
+      const newSupplier = { ...this.supplierModel };
+      newSupplier.id = (this.suppliers.length + 1).toString();
 
-    const today = new Date().toLocaleDateString('pt-BR');
-    newSupplier.createdAt = today;
-    newSupplier.updatedAt = today;
+      const today = new Date().toLocaleDateString('pt-BR');
+      newSupplier.createdAt = today;
+      newSupplier.updatedAt = today;
 
-    this.suppliers.push(newSupplier);
+      this.suppliers.push(newSupplier);
+    }
 
+    this.toggleSupplierModal();
+  }
+
+  openEditModal(supplier: any) {
+    this.supplierModel = { ...supplier };
+    this.isEditing = true;
+    this.showSupplierFormModal = true;
+  }
+
+  resetSupplierModel() {
     this.supplierModel = {
       id: '',
       name: '',
@@ -63,8 +84,7 @@ export class SuppliersComponent {
       createdAt: '',
       updatedAt: ''
     };
-
-    this.showSupplierFormModal = false;
+    this.isEditing = false;
   }
 
   openDeleteModal(supplier: any) {
