@@ -6,13 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
-export class HomepageComponent {
-  cardStats = [
-    { title: 'Total Produtos', value: '1,247', icon: '📦' },
-    { title: 'Total Clientes', value: '856', icon: '👥' },
-    { title: 'Total Fornecedores', value: '134', icon: '🏢' },
-    { title: 'Vendas Hoje', value: '89', icon: '💰' },
-    { title: 'Pedidos Pendentes', value: '23', icon: '⏳' }
+export class HomepageComponent {  cardStats = [
+    { title: 'Total Produtos', value: '1,247', icon: 'fas fa-box' },
+    { title: 'Total Clientes', value: '856', icon: 'fas fa-users' },
+    { title: 'Total Fornecedores', value: '134', icon: 'fas fa-building' },
+    { title: 'Vendas Hoje', value: '89', icon: 'fas fa-dollar-sign' },
+    { title: 'Pedidos Pendentes', value: '23', icon: 'fas fa-clock' }
   ];
 
   chartData = {

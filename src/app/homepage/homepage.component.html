@@ -9,11 +9,12 @@
 </nav>
 
 <div class="box_1">
-  
   <div class="stats-grid">
     @for (card of cardStats; track $index) {
       <div class="stat-card">
-        <div class="card-icon">{{card.icon}}</div>
+        <div class="card-icon">
+          <i [class]="card.icon"></i>
+        </div>
         <div class="card-content">
           <h3>{{card.value}}</h3>
           <p>{{card.title}}</p>
