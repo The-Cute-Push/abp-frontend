@@ -1,18 +1,36 @@
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>CNPJ</th>
-            <th>E-mail</th>
-            <th>Contato</th>
-            <th>Endereço</th>
-            <th>Criado em</th>
-            <th>Atualizado em</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (item of suppliers; track $index){
+<header>
+    <h1>ABP Frontend</h1>
+</header>
+<nav>
+    <a href="/">Home</a>
+    <a href="/products">Produtos</a>
+    <a href="/suppliers">Fornecedores</a>
+    <a href="/customers">Clientes</a>
+</nav>
+<div class="box_1">
+    <h1 class="titulo_da_tela">Produtos</h1>
+    <div class="box_2">
+        <div class="box_pesquisa">
+            <button>🔎</button>
+            <input type="text" placeholder="O que você está procurando?">
+        </div>
+        <button class="btn_add">Adicionar produto</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CNPJ</th>
+                <th>E-mail</th>
+                <th>Contato</th>
+                <th>Endereço</th>
+                <th>Criado em</th>
+                <th>Atualizado em</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of suppliers; track $index){
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
@@ -23,6 +41,10 @@
                 <td>{{item.createdAt}}</td>
                 <td>{{item.updatedAt}}</td>
             </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+</div>
+<footer>
+    <p>Todos os direitos reservados a ABP Frontend</p>
+</footer>

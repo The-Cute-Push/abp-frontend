@@ -104,6 +104,7 @@ nav > a:hover {
 }
 
 .search_box > input {
+
     border-radius: 0px 6px 6px 0px;
     width: 300px;
     color: white;
