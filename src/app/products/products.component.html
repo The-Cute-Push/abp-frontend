@@ -81,8 +81,8 @@
       </div>
 
       <div class="form_actions">
-        <button type="submit">Salvar</button>
-        <button type="button" (click)="toggleProductModal()">Fechar</button>
+        <button type="submit" class="btn_add">Salvar</button>
+        <button type="button" (click)="toggleProductModal()" class="btn_close">Fechar</button>
       </div>
     </form>
   </div>
@@ -96,8 +96,8 @@
       <p>Você tem certeza que deseja excluir <strong>{{ productToDelete?.name }}</strong> id <strong>{{
           productToDelete?.id }}</strong></p>
       <div class="form_actions">
-        <button type="submit" id="btn_delete">Excluir</button>
-        <button type="button" (click)="cancelDeletion()" id="btn_close">Fechar</button>
+        <button type="submit" class="btn_delete">Excluir</button>
+        <button type="button" (click)="cancelDeletion()" class="btn_close">Fechar</button>
       </div>
     </form>
   </div>
