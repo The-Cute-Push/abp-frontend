@@ -36,7 +36,9 @@ nav > a:hover {
     margin-bottom: 20px;
 }
 
-.btn_alterar {
+
+.btn_alterar, 
+.btn_edit {
     background-color: blue;
     border: none;
     color: white;
@@ -45,7 +47,8 @@ nav > a:hover {
     cursor: pointer;
 }
 
-.btn_excluir {
+.btn_excluir, 
+.btn_delete {
     background-color: red;
     border: none;
     color: white;
@@ -64,11 +67,13 @@ nav > a:hover {
     margin-bottom: 20px;
 }
 
-.btn_alterar:hover {
+.btn_alterar:hover,
+.btn_edit:hover {
     background-color: #4b4bff;
 }
 
-.btn_excluir:hover {
+.btn_excluir:hover,
+.btn_delete:hover {
     background-color: #ff4545;
 }
 
@@ -92,7 +97,7 @@ nav > a:hover {
 
 .box_pesquisa > button {
     width: 40px;
-    border-radius: 6px 0px 0px 6px;
+    border-radius: 6px 0 0 6px;
     height: 40px;
     border: none;
     background-color: #232222;
@@ -104,7 +109,7 @@ nav > a:hover {
 }
 
 .box_pesquisa > input {
-    border-radius: 0px 6px 6px 0px;
+    border-radius: 0 6px 6px 0;
     width: 300px;
     color: white;
     padding: 5px 10px;
@@ -125,7 +130,7 @@ table {
     width: 1200px;
     background-color: white;
     margin: auto;
-    padding: 40px 0px;
+    padding: 40px 0;
 }
 
 td, th {
@@ -151,4 +156,75 @@ footer {
 footer > p {
     color: white;
     top: 100%;
+}
+
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+}
+
+.modal_box h2 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form_group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form_group input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form_actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form_actions button {
+    all: unset;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+
+.form_actions button.btn_add {
+    background-color: green;
+}
+
+.form_actions button.btn_delete {
+    background-color: red;
+}
+
+.form_actions button.btn_close {
+    background-color: rgb(129, 128, 128);
 }
