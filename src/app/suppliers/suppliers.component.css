@@ -36,8 +36,8 @@ nav > a:hover {
     margin-bottom: 20px;
 }
 
-/* Botões unificados */
-.btn_alterar, /* também pode usar .btn_edit */
+
+.btn_alterar, 
 .btn_edit {
     background-color: blue;
     border: none;
@@ -47,7 +47,7 @@ nav > a:hover {
     cursor: pointer;
 }
 
-.btn_excluir, /* também pode usar .btn_delete */
+.btn_excluir, 
 .btn_delete {
     background-color: red;
     border: none;

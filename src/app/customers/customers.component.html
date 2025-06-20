@@ -8,13 +8,13 @@
   <a href="/customers">Clientes</a>
 </nav>
 <div class="box_1">
-  <h1 class="screen_title"></h1>
+  <h1 class="screen_title">Gerenciar Clientes</h1>
   <div class="box_2">
     <div class="search_box">
       <button>🔎</button>
       <input type="text" placeholder="O que você está procurando?">
     </div>
-    <button class="btn_add">Add customer</button>
+    <button class="btn_add" (click)="toggleCustomerModal()">Add customer</button>
   </div>
   <table>
     <thead>
@@ -29,19 +29,40 @@
       </tr>
     </thead>
     <tbody>
-      @for (item of customers; track $index){
-      <tr>
-        <td>{{item.id}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.cpf}}</td>
-        <td>{{item.createdAt}}</td>
-        <td>{{item.updatedAt}}</td>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.cpf }}</td>
+        <td>{{ customer.createdAt }}</td>
+        <td>{{ customer.updatedAt }}</td>
         <td><button class="btn_edit">Edit</button></td>
         <td><button class="btn_delete">Delete</button></td>
       </tr>
-      }
     </tbody>
   </table>
+</div>
+
+
+<div class="modal_overlay" *ngIf="showCreateCustomerModal">
+  <div class="modal_box">
+    <h2>Adicionar Cliente</h2>
+    <p class="error_message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <form (ngSubmit)="createCustomer()">
+      <div class="form_group">
+        <label>Nome:</label>
+        <input type="text" [(ngModel)]="customer.name" name="name" required />
+      </div>
+      <div class="form_group">
+        <label>CPF:</label>
+        <input type="text" [(ngModel)]="customer.cpf" name="cpf" required mask="000.000.000-00" />
+      </div>
+      <div class="form_actions">
+        <button type="submit" class="btn_add">Salvar</button>
+        <button type="button" class="btn_close" (click)="toggleCustomerModal()">Fechar</button>
+      </div>
+    </form>
+  </div>
 </div>
 <footer>
   <p>Todos os direitos reservados a The Cute Push Organization</p>

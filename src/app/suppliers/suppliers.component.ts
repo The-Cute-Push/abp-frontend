@@ -26,7 +26,7 @@ export class SuppliersComponent {
   showSupplierFormModal = false;
   showDeleteModal = false;
   supplierToDelete: any = null;
-  isEditing = false; // Flag to check if editing
+  isEditing = false; 
   supplierModel = {
     id: '',
     name: '',
