@@ -1,6 +1,8 @@
+
 <header>
   <h1>Produtos</h1>
 </header>
+
 <nav>
   <a href="/">Home</a>
   <a href="/products">Produtos</a>
@@ -9,7 +11,7 @@
 </nav>
 
 <div class="box_one">
-  <h1 class="screen_title"></h1>
+  <h1 class="screen_title">Gerenciar Produtos</h1>
   <div class="box_two">
     <div class="search_box">
       <button>🔎</button>
@@ -35,8 +37,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (item of products; track $index) {
-      <tr>
+      <tr *ngFor="let item of products; index as i">
         <td>{{ item.id }}</td>
         <td>{{ item.photo }}</td>
         <td>{{ item.name }}</td>
@@ -46,40 +47,33 @@
         <td>{{ item.quantity }}</td>
         <td>{{ item.createdAt }}</td>
         <td>{{ item.updatedAt }}</td>
-        <td><button class="btn_edit">Alterar</button></td>
+        <td><button class="btn_edit" (click)="openEditModal(item)">Alterar</button></td>
         <td><button class="btn_delete" (click)="openDeleteModal(item)">Excluir</button></td>
       </tr>
-      }
     </tbody>
   </table>
 </div>
-<footer>
-  <p>Todos os direitos reservados a The Cute Push Organization</p>
-</footer>
 
-
-<!-- Product Registration Modal -->
 <div class="modal_overlay" *ngIf="showProductFormModal">
   <div class="modal_box">
     <h2>Cadastrar Produto</h2>
     <form (ngSubmit)="saveProduct()">
       <div class="form_group">
         <label>Nome:</label>
-        <input type="text" [(ngModel)]="productModel.name" name="name">
+        <input type="text" [(ngModel)]="productModel.name" name="name" required />
       </div>
       <div class="form_group">
         <label>Preço:</label>
-        <input type="text" [(ngModel)]="productModel.price" name="price">
+        <input type="text" [(ngModel)]="productModel.price" name="price" required />
       </div>
       <div class="form_group">
         <label>Custo:</label>
-        <input type="text" [(ngModel)]="productModel.cost" name="cost">
+        <input type="text" [(ngModel)]="productModel.cost" name="cost" required />
       </div>
       <div class="form_group">
         <label>Quantidade:</label>
-        <input type="text" [(ngModel)]="productModel.quantity" name="quantity">
+        <input type="text" [(ngModel)]="productModel.quantity" name="quantity" required />
       </div>
-
       <div class="form_actions">
         <button type="submit" class="btn_add">Salvar</button>
         <button type="button" (click)="toggleProductModal()" class="btn_close">Fechar</button>
@@ -88,17 +82,48 @@
   </div>
 </div>
 
-<!-- Product Deletion Modal -->
-<div class="modal_overlay" *ngIf="showDeleteModal">
+<div *ngIf="showEditModal" class="modal_overlay">
   <div class="modal_box">
-    <h2>Exclusão de Produto</h2>
-    <form (submit)="confirmDeletion()">
-      <p>Você tem certeza que deseja excluir <strong>{{ productToDelete?.name }}</strong> id <strong>{{
-          productToDelete?.id }}</strong></p>
+    <h2>Editar Produto</h2>
+    <form>
+      <div class="form_group">
+        <label>Nome:</label>
+        <input [(ngModel)]="productToEdit.name" name="editName" type="text" />
+      </div>
+      <div class="form_group">
+        <label>Preço:</label>
+        <input [(ngModel)]="productToEdit.price" name="editPrice" type="text" />
+      </div>
+      <div class="form_group">
+        <label>Custo:</label>
+        <input [(ngModel)]="productToEdit.cost" name="editCost" type="text" />
+      </div>
+      <div class="form_group">
+        <label>Quantidade:</label>
+        <input [(ngModel)]="productToEdit.quantity" name="editQuantity" type="text" />
+      </div>
       <div class="form_actions">
-        <button type="submit" class="btn_delete">Excluir</button>
-        <button type="button" (click)="cancelDeletion()" class="btn_close">Fechar</button>
+        <button type="button" (click)="saveEditedProduct()" class="btn_add">Salvar</button>
+        <button type="button" (click)="cancelEdit()" class="btn_close">Cancelar</button>
       </div>
     </form>
   </div>
 </div>
+
+<div class="modal_overlay" *ngIf="showDeleteModal">
+  <div class="modal_box">
+    <h2>Exclusão de Produto</h2>
+    <form (submit)="confirmDeletion()">
+      <p>Você tem certeza que deseja excluir <strong>{{ productToDelete?.name }}</strong> (ID:
+        <strong>{{ productToDelete?.id }}</strong>)?</p>
+      <div class="form_actions">
+        <button type="submit" class="btn_delete">Excluir</button>
+        <button type="button" (click)="cancelDeletion()" class="btn_close">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>Todos os direitos reservados a The Cute Push Organization</p>
+</footer>
