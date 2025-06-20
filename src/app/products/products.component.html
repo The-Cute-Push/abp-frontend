@@ -76,7 +76,7 @@
       </div>
       <div class="form_actions">
         <button type="submit" class="btn_add">Salvar</button>
-        <button type="button" (click)="toggleProductModal()" class="btn_close">Fechar</button>
+        <button type="button" (click)="toggleProductModal()" class="btn_close">Cancelar</button>
       </div>
     </form>
   </div>
@@ -88,19 +88,19 @@
     <form>
       <div class="form_group">
         <label>Nome:</label>
-        <input [(ngModel)]="productToEdit.name" name="editName" type="text" />
+        <input [(ngModel)]="productToEdit.name" name="editName" type="text" required />
       </div>
       <div class="form_group">
         <label>Preço:</label>
-        <input [(ngModel)]="productToEdit.price" name="editPrice" type="text" />
+        <input [(ngModel)]="productToEdit.price" name="editPrice" type="text" required />
       </div>
       <div class="form_group">
         <label>Custo:</label>
-        <input [(ngModel)]="productToEdit.cost" name="editCost" type="text" />
+        <input [(ngModel)]="productToEdit.cost" name="editCost" type="text" required />
       </div>
       <div class="form_group">
         <label>Quantidade:</label>
-        <input [(ngModel)]="productToEdit.quantity" name="editQuantity" type="text" />
+        <input [(ngModel)]="productToEdit.quantity" name="editQuantity" type="text" required />
       </div>
       <div class="form_actions">
         <button type="button" (click)="saveEditedProduct()" class="btn_add">Salvar</button>
