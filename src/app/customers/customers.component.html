@@ -8,24 +8,24 @@
   <a href="/customers">Clientes</a>
 </nav>
 <div class="box_1">
-  <h1 class="screen_title"></h1>
+  <h1 class="screen_title">Gerenciamento de Clientes</h1>
   <div class="box_2">
     <div class="search_box">
       <button>🔎</button>
-      <input type="text" placeholder="O que você está procurando?">
+      <input type="text" placeholder="O que você está procurando?" />
     </div>
-    <button class="btn_add" (click)="toggleCustomerModal()">Adicionar customer</button>
+    <button class="btn_add" (click)="toggleCustomerModal()">Adicionar Cliente</button>
   </div>
   <table>
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Nome</th>
         <th>CPF</th>
         <th>Criado em</th>
         <th>Atualizado em</th>
-        <th>#</th>
-        <th>#</th>
+        <th>Alterar</th>
+        <th>Excluir</th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +36,7 @@
         <td>{{ customer.createdAt }}</td>
         <td>{{ customer.updatedAt }}</td>
         <td>
-          <button class="btn_edit">Alterar</button>
+          <button class="btn_edit" (click)="openEditCustomerModal(customer)">Alterar</button>
         </td>
         <td>
           <button class="btn_delete" (click)="confirmDeleteCustomer(customer)">Excluir</button>
@@ -46,24 +46,21 @@
   </table>
 </div>
 
-<!-- Modal de confirmação de exclusão -->
 <div class="modal_overlay" *ngIf="showDeleteConfirmationModal">
   <div class="modal_box">
     <h2>Confirmar Exclusão</h2>
     <p>Tem certeza de que deseja excluir o cliente "{{ customerToDelete?.name }}"?</p>
     <div class="form_actions">
-      <button class="btn_delete" (click)="deleteCustomer()">Excluir</button>
+      <button class="btn_delete_menu" (click)="deleteCustomer()">Excluir</button>
       <button class="btn_close" (click)="cancelDelete()">Cancelar</button>
     </div>
   </div>
 </div>
 
-<!-- Modal de criação de cliente -->
 <div class="modal_overlay" *ngIf="showCreateCustomerModal">
   <div class="modal_box">
     <h2>Adicionar Cliente</h2>
     <p class="error_message" *ngIf="errorMessage">{{ errorMessage }}</p>
-
     <form (ngSubmit)="createCustomer()">
       <div class="form_group">
         <label for="name">Nome:</label>
@@ -91,6 +88,25 @@
         <button type="button" class="btn_close" (click)="toggleCustomerModal()">Fechar</button>
       </div>
     </form>
+  </div>
+</div>
+
+<div *ngIf="showEditCustomerModal" class="modal_overlay">
+  <div class="modal_box">
+    <h2>Editar Cliente</h2>
+    <div class="form_group">
+      <label for="name">Nome</label>
+      <input id="name" [(ngModel)]="customerToEdit!.name" />
+    </div>
+    <div class="form_group">
+      <label for="cpf">CPF</label>
+      <input id="cpf" [(ngModel)]="customerToEdit!.cpf" />
+    </div>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <div class="form_actions">
+      <button class="btn_add" (click)="saveEditedCustomer()">Salvar</button>
+      <button class="btn_close" (click)="showEditCustomerModal = false">Cancelar</button>
+    </div>
   </div>
 </div>
 

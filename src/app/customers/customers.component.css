@@ -54,6 +54,16 @@ nav > a:hover {
     cursor: pointer;
 }
 
+.btn_delete_menu {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
 .btn_add {
     background-color: green;
     border: none;
