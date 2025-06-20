@@ -8,13 +8,13 @@
   <a href="/customers">Clientes</a>
 </nav>
 <div class="box_1">
-  <h1 class="screen_title">Gerenciar Clientes</h1>
+  <h1 class="screen_title"></h1>
   <div class="box_2">
     <div class="search_box">
       <button>🔎</button>
       <input type="text" placeholder="O que você está procurando?">
     </div>
-    <button class="btn_add" (click)="toggleCustomerModal()">Add customer</button>
+    <button class="btn_add" (click)="toggleCustomerModal()">Adicionar customer</button>
   </div>
   <table>
     <thead>
@@ -22,8 +22,8 @@
         <th>ID</th>
         <th>Name</th>
         <th>CPF</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        <th>Criado em</th>
+        <th>Atualizado em</th>
         <th>#</th>
         <th>#</th>
       </tr>
@@ -35,14 +35,30 @@
         <td>{{ customer.cpf }}</td>
         <td>{{ customer.createdAt }}</td>
         <td>{{ customer.updatedAt }}</td>
-        <td><button class="btn_edit">Edit</button></td>
-        <td><button class="btn_delete">Delete</button></td>
+        <td>
+          <button class="btn_edit">Alterar</button>
+        </td>
+        <td>
+          <button class="btn_delete" (click)="confirmDeleteCustomer(customer)">Excluir</button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
 
+<!-- Modal de confirmação de exclusão -->
+<div class="modal_overlay" *ngIf="showDeleteConfirmationModal">
+  <div class="modal_box">
+    <h2>Confirmar Exclusão</h2>
+    <p>Tem certeza de que deseja excluir o cliente "{{ customerToDelete?.name }}"?</p>
+    <div class="form_actions">
+      <button class="btn_delete" (click)="deleteCustomer()">Excluir</button>
+      <button class="btn_close" (click)="cancelDelete()">Cancelar</button>
+    </div>
+  </div>
+</div>
 
+<!-- Modal de criação de cliente -->
 <div class="modal_overlay" *ngIf="showCreateCustomerModal">
   <div class="modal_box">
     <h2>Adicionar Cliente</h2>
@@ -50,12 +66,25 @@
 
     <form (ngSubmit)="createCustomer()">
       <div class="form_group">
-        <label>Nome:</label>
-        <input type="text" [(ngModel)]="customer.name" name="name" required />
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          [(ngModel)]="customer.name"
+          name="name"
+          required
+        />
       </div>
       <div class="form_group">
-        <label>CPF:</label>
-        <input type="text" [(ngModel)]="customer.cpf" name="cpf" required mask="000.000.000-00" />
+        <label for="cpf">CPF:</label>
+        <input
+          type="text"
+          id="cpf"
+          [(ngModel)]="customer.cpf"
+          name="cpf"
+          required
+          mask="000.000.000-00"
+        />
       </div>
       <div class="form_actions">
         <button type="submit" class="btn_add">Salvar</button>
@@ -64,6 +93,7 @@
     </form>
   </div>
 </div>
+
 <footer>
   <p>Todos os direitos reservados a The Cute Push Organization</p>
 </footer>

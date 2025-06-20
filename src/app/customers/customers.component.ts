@@ -11,11 +11,20 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css'],
 })
-
 export class CustomersComponent {
-  customers: Array<{ id: string; name: string; cpf: string; createdAt: string; updatedAt: string }> = [];
+  customers: Array<{ id: string; name: string; cpf: string; createdAt: string; updatedAt: string }> = [
+    {
+      id: '1',
+      name: 'João Silva',
+      cpf: '123.456.789-00',
+      createdAt: new Date().toLocaleDateString(),
+      updatedAt: new Date().toLocaleDateString(),
+    },
+  ];
   customer = { id: '', name: '', cpf: '', createdAt: '', updatedAt: '' };
   showCreateCustomerModal = false;
+  showDeleteConfirmationModal = false;
+  customerToDelete: { id: string; name: string; cpf: string; createdAt: string; updatedAt: string } | null = null;
   errorMessage = '';
 
   toggleCustomerModal() {
@@ -23,11 +32,28 @@ export class CustomersComponent {
     this.errorMessage = '';
   }
 
+  confirmDeleteCustomer(customer: { id: string; name: string; cpf: string; createdAt: string; updatedAt: string }) {
+    this.customerToDelete = customer;
+    this.showDeleteConfirmationModal = true;
+  }
+
+  deleteCustomer() {
+    if (this.customerToDelete) {
+      this.customers = this.customers.filter((c) => c.id !== this.customerToDelete!.id);
+      this.customerToDelete = null;
+      this.showDeleteConfirmationModal = false;
+    }
+  }
+
+  cancelDelete() {
+    this.customerToDelete = null;
+    this.showDeleteConfirmationModal = false;
+  }
+
   validateCPF(cpf: string): boolean {
     const digitsOnly = cpf.replace(/\D/g, '');
     return digitsOnly.length === 11;
   }
-  
 
   isCPFUnique(cpf: string): boolean {
     return !this.customers.some((customer) => customer.cpf === cpf);
