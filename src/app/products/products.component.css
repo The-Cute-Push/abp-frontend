@@ -27,7 +27,7 @@ nav > a {
 }
 
 nav > a:hover {
-  background-color: coral;
+  background-color: #2790d6;
   transition: all 1s ease;
 }
 
@@ -100,7 +100,7 @@ nav > a:hover {
 }
 
 .search_box > button:hover {
-  background-color: coral;
+  background-color: #2790d6;
 }
 
 .search_box > input {
@@ -135,7 +135,7 @@ td, th {
 }
 
 tr:hover {
-  background-color: coral;
+  background-color: #2790d6;
 }
 
 footer {
