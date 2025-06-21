@@ -132,6 +132,8 @@ table {
 }
 
 .box_1 {
+    position: relative;
+    top: 6vh;
     min-height: 100vh;
     width: 1200px;
     background-color: white;
