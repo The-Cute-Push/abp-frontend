@@ -7,11 +7,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },
   {
     path: '',
     component: LayoutComponent,
     children: [
+      { path: '', component: LoginComponent },
       { path: 'home', component: HomepageComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'products', component: ProductsComponent },
