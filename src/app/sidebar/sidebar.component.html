@@ -1,0 +1,12 @@
+
+<div class="hamburger-menu" (click)="toggleSidebar()">
+  <span [class.open]="sidebarOpen"></span>
+  <span [class.open]="sidebarOpen"></span>
+  <span [class.open]="sidebarOpen"></span>
+</div>
+
+<nav class="sidebar" [class.active]="sidebarOpen">
+  <a routerLink="/customers" (click)="toggleSidebar()">Clientes</a>
+  <a routerLink="/products" (click)="toggleSidebar()">Produtos</a>
+  <a routerLink="/suppliers" (click)="toggleSidebar()">Fornecedores</a>
+</nav>
