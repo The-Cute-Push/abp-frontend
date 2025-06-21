@@ -1,6 +1,6 @@
 header {
     background-color: #232222;
-    height: 12vh;
+    height: 6vh;
     margin: auto;
     width: 1200px;
     display: flex;
@@ -27,7 +27,7 @@ nav > a {
 }
 
 nav > a:hover {
-    background-color: coral;
+    background-color: #2790d6;
     transition: all 1s ease;
 }
 
@@ -105,7 +105,7 @@ nav > a:hover {
 }
 
 .box_pesquisa > button:hover {
-    background-color: coral;
+    background-color: #2790d6;
 }
 
 .box_pesquisa > input {
@@ -126,6 +126,8 @@ table {
 }
 
 .box_1 {
+    position: relative;
+    top: 6vh; 
     min-height: 100vh;
     width: 1200px;
     background-color: white;
@@ -140,7 +142,7 @@ td, th {
 }
 
 tr:hover {
-    background-color: coral;
+    background-color: #2790d6;
 }
 
 footer {

@@ -1,6 +1,6 @@
 header {
     background-color: #232222;
-    height: 12vh;
+    height: 6vh;
     margin: auto;
     width: 1200px;
     display: flex;
@@ -116,6 +116,8 @@ table {
 }
 
 .box_1 {
+    position: relative;
+    top: 6vh;
     min-height: 100vh;
     width: 1200px;
     background-color: white;
@@ -130,7 +132,7 @@ td, th {
 }
 
 tr:hover {
-    background-color: rgb(39, 144, 214);
+    background-color: #2790d6;
 }
 
 footer {

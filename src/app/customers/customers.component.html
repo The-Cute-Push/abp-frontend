@@ -1,14 +1,4 @@
-<header>
-  <h1>Clientes</h1>
-</header>
-<nav>
-  <a href="/">Home</a>
-  <a href="/products">Produtos</a>
-  <a href="/suppliers">Fornecedores</a>
-  <a href="/customers">Clientes</a>
-</nav>
 <div class="box_1">
-  <h1 class="screen_title">Gerenciamento de Clientes</h1>
   <div class="box_2">
     <div class="search_box">
       <button>🔎</button>
@@ -45,7 +35,6 @@
     </tbody>
   </table>
 </div>
-
 <div class="modal_overlay" *ngIf="showDeleteConfirmationModal">
   <div class="modal_box">
     <h2>Confirmar Exclusão</h2>
@@ -56,7 +45,6 @@
     </div>
   </div>
 </div>
-
 <div class="modal_overlay" *ngIf="showCreateCustomerModal">
   <div class="modal_box">
     <h2>Adicionar Cliente</h2>
@@ -90,7 +78,6 @@
     </form>
   </div>
 </div>
-
 <div *ngIf="showEditCustomerModal" class="modal_overlay">
   <div class="modal_box">
     <h2>Editar Cliente</h2>
@@ -109,7 +96,6 @@
     </div>
   </div>
 </div>
-
 <footer>
   <p>Todos os direitos reservados a The Cute Push Organization</p>
 </footer>
