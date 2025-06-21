@@ -1,3 +1,4 @@
+
 <div class="box_one">
   <div class="box_two">
     <div class="search_box">
@@ -6,6 +7,7 @@
     </div>
     <button class="btn_add" (click)="toggleProductModal()">Adicionar produto</button>
   </div>
+
   <table>
     <thead>
       <tr>
@@ -39,3 +41,77 @@
     </tbody>
   </table>
 </div>
+
+<div class="modal_overlay" *ngIf="showProductFormModal">
+  <div class="modal_box">
+    <h2>Cadastrar Produto</h2>
+    <form (ngSubmit)="saveProduct()">
+      <div class="form_group">
+        <label>Nome:</label>
+        <input type="text" [(ngModel)]="productModel.name" name="name" required />
+      </div>
+      <div class="form_group">
+        <label>Preço:</label>
+        <input type="text" [(ngModel)]="productModel.price" name="price" required />
+      </div>
+      <div class="form_group">
+        <label>Custo:</label>
+        <input type="text" [(ngModel)]="productModel.cost" name="cost" required />
+      </div>
+      <div class="form_group">
+        <label>Quantidade:</label>
+        <input type="text" [(ngModel)]="productModel.quantity" name="quantity" required />
+      </div>
+      <div class="form_actions">
+        <button type="submit" class="btn_add">Salvar</button>
+        <button type="button" (click)="toggleProductModal()" class="btn_close">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showEditModal" class="modal_overlay">
+  <div class="modal_box">
+    <h2>Editar Produto</h2>
+    <form>
+      <div class="form_group">
+        <label>Nome:</label>
+        <input [(ngModel)]="productToEdit.name" name="editName" type="text" required />
+      </div>
+      <div class="form_group">
+        <label>Preço:</label>
+        <input [(ngModel)]="productToEdit.price" name="editPrice" type="text" required />
+      </div>
+      <div class="form_group">
+        <label>Custo:</label>
+        <input [(ngModel)]="productToEdit.cost" name="editCost" type="text" required />
+      </div>
+      <div class="form_group">
+        <label>Quantidade:</label>
+        <input [(ngModel)]="productToEdit.quantity" name="editQuantity" type="text" required />
+      </div>
+      <div class="form_actions">
+        <button type="button" (click)="saveEditedProduct()" class="btn_add">Salvar</button>
+        <button type="button" (click)="cancelEdit()" class="btn_close">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal_overlay" *ngIf="showDeleteModal">
+  <div class="modal_box">
+    <h2>Exclusão de Produto</h2>
+    <form (submit)="confirmDeletion()">
+      <p>Você tem certeza que deseja excluir <strong>{{ productToDelete?.name }}</strong> (ID:
+        <strong>{{ productToDelete?.id }}</strong>)?</p>
+      <div class="form_actions">
+        <button type="submit" class="btn_delete">Excluir</button>
+        <button type="button" (click)="cancelDeletion()" class="btn_close">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>Todos os direitos reservados a The Cute Push Organization</p>
+</footer>
