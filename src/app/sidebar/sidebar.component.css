@@ -23,7 +23,7 @@
   background-color: #ffffff;
   border-radius: 3px;
   transition: all 0.3s ease-in-out;
-  background-color: #030200d2; 
+  background-color: #030200; 
 }
 
 .hamburger-menu span.open:nth-child(1) {
@@ -44,7 +44,7 @@
   left: -240px;
   width: 220px;
   height: 100vh;
-  background-color: #1e1e2f;
+  background-color: #2790d6;
   padding: 80px 20px;
   display: flex;
   flex-direction: column;
@@ -69,6 +69,6 @@
 }
 
 .sidebar a:hover {
-  background-color: #ff6f00;
+  background-color: #227db9;
   color: #1e1e2f;
 }
