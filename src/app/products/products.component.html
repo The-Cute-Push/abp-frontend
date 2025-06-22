@@ -1,12 +1,12 @@
 
 <div class="box_one">
-  <div class="box_two">
-    <div class="search_box">
-      <button>🔎</button>
-      <input type="text" placeholder="O que você está procurando?">
-    </div>
-    <button class="btn_add" (click)="toggleProductModal()">Adicionar produto</button>
-  </div>
+  <app-search-bar 
+    placeholder="O que você está procurando?" 
+    buttonText="Adicionar produto"
+    (buttonClick)="toggleProductModal()"
+    (searchChange)="onSearchChange($event)"
+    (searchSubmit)="onSearchSubmit($event)">
+  </app-search-bar>
 
   <table>
     <thead>

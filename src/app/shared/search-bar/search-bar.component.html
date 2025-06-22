@@ -1,0 +1,17 @@
+<div class="box_two">
+  <div class="search_box">
+    <button (click)="onSearchSubmit()" type="button">
+      <i class="fas fa-search"></i>
+    </button>
+    <input 
+      type="text" 
+      [placeholder]="placeholder"
+      [value]="searchValue"
+      (input)="onSearchChange($event)"
+      (keyup.enter)="onSearchSubmit()"
+    />
+  </div>
+  <button class="btn_add" (click)="onButtonClick()" type="button">
+    {{buttonText}}
+  </button>
+</div>

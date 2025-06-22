@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { SearchBarComponent } from '../shared/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [CommonModule, FormsModule, NgxMaskDirective],
-  providers: [provideNgxMask()],
+  imports: [CommonModule, FormsModule, SearchBarComponent],
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css'],
 })
@@ -31,6 +30,9 @@ export class CustomersComponent {
   showDeleteConfirmationModal = false;
 
   errorMessage = '';
+
+  // Search functionality
+  searchTerm: string = '';
 
   toggleCustomerModal() {
     this.showCreateCustomerModal = !this.showCreateCustomerModal;
@@ -109,6 +111,16 @@ export class CustomersComponent {
       this.customerToDelete = null;
       this.showDeleteConfirmationModal = false;
     }
+  }
+
+  onSearchChange(value: string) {
+    this.searchTerm = value;
+    console.log('Searching for:', value);
+  }
+
+  onSearchSubmit(value: string) {
+    this.searchTerm = value;
+    console.log('Search submitted:', value);
   }
 
   validateCPF(cpf: string): boolean {
