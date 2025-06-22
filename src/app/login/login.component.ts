@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
   email = '';
   password = '';
+  errorMessage = ''; 
 
   constructor(private router: Router) {}
 
@@ -20,7 +21,14 @@ export class LoginComponent {
     if (this.email === 'adm@gmail.com' && this.password === '1234') {
       this.router.navigate(['/home']);
     } else {
-      alert('Usuário ou senha inválidos.');
+      this.errorMessage = 'Usuário ou senha inválidos.';
+      this.autoHideErrorMessage();
     }
+  }
+
+  autoHideErrorMessage() {
+    setTimeout(() => {
+      this.errorMessage = ''; 
+    }, 2500); 
   }
 }

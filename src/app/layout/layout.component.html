@@ -1,4 +1,6 @@
-<app-sidebar></app-sidebar>
+<!-- Renderiza a sidebar apenas se showSidebar for verdadeiro -->
+<app-sidebar *ngIf="showSidebar"></app-sidebar>
+
 <div class="main-content">
   <router-outlet></router-outlet>
 </div>
