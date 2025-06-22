@@ -1,4 +1,4 @@
-<div class="container">  
+<div class="container">
   <div class="login-box">
     <h1 class="spacing-top">Log in</h1>
 
@@ -13,5 +13,12 @@
     </div>
 
     <button type="submit" (click)="login()">Entrar</button>
+
+    <div *ngIf="errorMessage" class="error-message-container">
+      <div class="error-message">
+        <div class="error-message-line"></div>
+        <span>{{ errorMessage }}</span>
+      </div>
+    </div>
   </div>
 </div>
