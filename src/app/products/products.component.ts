@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchBarComponent } from '../shared/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SearchBarComponent],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
@@ -125,5 +126,20 @@ export class ProductsComponent {
     this.showDeleteModal = false;
     this.productToDelete = null;
     console.log("Deletion cancelled");
+  }
+
+  // Search functionality
+  searchTerm: string = '';
+
+  onSearchChange(value: string) {
+    this.searchTerm = value;
+    // Aqui você pode implementar lógica de filtro em tempo real
+    console.log('Searching for:', value);
+  }
+
+  onSearchSubmit(value: string) {
+    this.searchTerm = value;
+    // Aqui você pode implementar lógica de pesquisa
+    console.log('Search submitted:', value);
   }
 }

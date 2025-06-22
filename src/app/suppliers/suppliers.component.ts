@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchBarComponent } from '../shared/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-suppliers',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SearchBarComponent],
   templateUrl: './suppliers.component.html',
   styleUrl: './suppliers.component.css'
 })
@@ -37,6 +38,19 @@ export class SuppliersComponent {
     createdAt: '',
     updatedAt: ''
   };
+
+  // Search functionality
+  searchTerm: string = '';
+
+  onSearchChange(value: string) {
+    this.searchTerm = value;
+    console.log('Searching for:', value);
+  }
+
+  onSearchSubmit(value: string) {
+    this.searchTerm = value;
+    console.log('Search submitted:', value);
+  }
 
   toggleSupplierModal() {
     this.showSupplierFormModal = !this.showSupplierFormModal;
