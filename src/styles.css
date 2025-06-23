@@ -26,3 +26,18 @@ body {
   width: 35px;
   height: 35px;
 }
+
+footer {
+    position: relative;
+    background-color: #232222;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+footer > p {
+    color: white;
+    top: 100%;
+}
