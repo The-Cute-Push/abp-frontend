@@ -366,11 +366,6 @@ footer > p {
   visibility: visible;
 }
 
-.bar-label {
-  color: white;
-  padding-bottom: 5px;
-}
-
 .value-tooltip-horizontal {
     position: absolute;
     top: -28px;

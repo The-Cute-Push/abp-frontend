@@ -14,7 +14,7 @@ registerLocaleData(localePt, 'pt-BR');
   ],
   standalone: true,
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {  cardStats = [
     { title: 'Total Produtos', value: '1,247', icon: 'fas fa-box' },
