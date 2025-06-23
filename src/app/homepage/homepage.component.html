@@ -18,8 +18,11 @@
       <div class="chart-area">
         <div class="chart-lines">
           @for (item of chartData.sales; track $index) {
-            <div class="chart-bar" [style.height.%]="(item.value / 6000) * 100">
-              <span class="bar-label">{{item.month}}</span>
+            <div class="chart-bar-wrapper">
+              <div class="chart-bar" [style.height]="(item.value / 6000) * 100 + '%'">
+                <span class="bar-label">{{item.month}}</span>
+                <div class="value-tooltip">{{ item.value | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</div>
+              </div>
             </div>
           }
         </div>
@@ -30,9 +33,13 @@
       <div class="horizontal-chart">
         @for (product of chartData.topProducts; track $index) {
           <div class="product-bar-container">
-            <span class="product-name">{{product.name}}</span>
             <div class="product-bar">
-              <div class="product-progress" [style.width.%]="product.sales"></div>
+              <div class="product-progress" [style.width.%]="product.sales">
+                <span class="product-name">{{product.name}}</span>
+              </div>
+            </div>
+            <div class="value-tooltip-horizontal">
+              {{product.sales}}
             </div>
           </div>
         }
@@ -73,6 +80,3 @@
     </div>
   </div>
 </div>
-<footer>
-  <p>Todos os direitos reservados a The Cute Push Organization</p>
-</footer>
