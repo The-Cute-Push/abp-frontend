@@ -1,6 +1,6 @@
 header {
     background-color: #232222;
-    height: 6vh;
+    height: 9vh;
     margin: auto;
     width: 1200px;
     display: flex;
@@ -153,6 +153,7 @@ footer {
     align-items: center;
     width: 1200px;
     margin: auto;
+    padding-top: 5vh;
 }
 
 footer > p {
