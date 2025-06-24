@@ -1,7 +1,6 @@
-
 <div class="box_1">
-  <app-search-bar 
-    placeholder="O que você está procurando?" 
+  <app-search-bar
+    placeholder="O que você está procurando?"
     buttonText="Adicionar produto"
     (buttonClick)="toggleProductModal()"
     (searchChange)="onSearchChange($event)"
@@ -25,8 +24,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of products; index as i">
-        <td>{{ item.id }}</td>
+      <tr *ngFor="let item of filteredProducts; index as i"> <td>{{ item.id }}</td>
         <td>{{ item.photo }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.code }}</td>
