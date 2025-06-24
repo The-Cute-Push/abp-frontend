@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, ApplicationConfig, LOCALE_ID } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt, 'pt-BR');
 
 @Component({
   selector: 'app-homepage',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
+  ],
+  standalone: true,
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {  cardStats = [
     { title: 'Total Produtos', value: '1,247', icon: 'fas fa-box' },
