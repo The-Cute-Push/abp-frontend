@@ -101,17 +101,6 @@ table {
     background-color: white;
 }
 
-.box_1 {
-    margin-top: 6vh;
-    margin-bottom: 6vh;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 85vh;
-    width: 1200px;
-    background-color: white;
-    padding: 40px 0px;
-}
-
 td, th {
     padding: 8px;
     text-align: left;
