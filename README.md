@@ -27,10 +27,7 @@ The primary goal of **Cuteware** is to address the challenges faced by companies
 4. **Supplier Registration**
    - Manage supplier information, facilitating the purchasing process and inventory control.
 
-5. **Inventory Control**
-   - Monitor product entries and exits, with alerts for critical stock levels.
-
-6. **Customer Registration**
+5. **Customer Registration**
    - Manage customer information, facilitating the sales process and inventory control.
 
 
