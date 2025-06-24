@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchBarComponent } from '../shared/search-bar/search-bar.component';
@@ -10,7 +10,7 @@ import { SearchBarComponent } from '../shared/search-bar/search-bar.component';
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css'],
 })
-export class CustomersComponent {
+export class CustomersComponent implements OnInit {
   customers: Array<{ id: string; name: string; cpf: string; createdAt: string; updatedAt: string }> = [
     {
       id: '1',
@@ -19,7 +19,17 @@ export class CustomersComponent {
       createdAt: new Date().toLocaleDateString(),
       updatedAt: new Date().toLocaleDateString(),
     },
+    {
+      id: '2',
+      name: 'Maria Oliveira',
+      cpf: '987.654.321-11',
+      createdAt: new Date().toLocaleDateString(),
+      updatedAt: new Date().toLocaleDateString(),
+    },
   ];
+
+  // Array para armazenar os clientes filtrados
+  filteredCustomers: Array<{ id: string; name: string; cpf: string; createdAt: string; updatedAt: string }> = [];
 
   customer = { id: '', name: '', cpf: '', createdAt: '', updatedAt: '' };
   customerToEdit: { id: string; name: string; cpf: string; createdAt: string; updatedAt: string } | null = null;
@@ -33,6 +43,11 @@ export class CustomersComponent {
 
   // Search functionality
   searchTerm: string = '';
+
+  ngOnInit(): void {
+    // Inicializa a lista filtrada com todos os clientes
+    this.filteredCustomers = this.customers;
+  }
 
   toggleCustomerModal() {
     this.showCreateCustomerModal = !this.showCreateCustomerModal;
@@ -73,6 +88,7 @@ export class CustomersComponent {
       updatedAt: new Date().toLocaleDateString(),
     };
     this.customers.push(newCustomer);
+    this.filterCustomers(); // Atualiza a lista exibida
     this.customer = { id: '', name: '', cpf: '', createdAt: '', updatedAt: '' };
     this.showCreateCustomerModal = false;
     this.errorMessage = '';
@@ -84,10 +100,8 @@ export class CustomersComponent {
       return;
     }
 
-    if (
-      !this.isCPFUnique(this.customerToEdit!.cpf) &&
-      this.customerToEdit!.cpf !== this.customers.find(c => c.id === this.customerToEdit!.id)?.cpf
-    ) {
+    const originalCustomer = this.customers.find(c => c.id === this.customerToEdit!.id);
+    if (this.customerToEdit!.cpf !== originalCustomer?.cpf && !this.isCPFUnique(this.customerToEdit!.cpf)) {
       this.errorMessage = 'CPF já cadastrado. Por favor, insira um CPF único.';
       return;
     }
@@ -98,6 +112,7 @@ export class CustomersComponent {
         ...this.customerToEdit!,
         updatedAt: new Date().toLocaleDateString(),
       };
+      this.filterCustomers(); // Atualiza a lista exibida
     }
 
     this.customerToEdit = null;
@@ -108,19 +123,35 @@ export class CustomersComponent {
   deleteCustomer() {
     if (this.customerToDelete) {
       this.customers = this.customers.filter((c) => c.id !== this.customerToDelete!.id);
+      this.filterCustomers(); // Atualiza a lista exibida
       this.customerToDelete = null;
       this.showDeleteConfirmationModal = false;
     }
   }
 
+  // Lógica de busca atualizada
   onSearchChange(value: string) {
     this.searchTerm = value;
-    console.log('Searching for:', value);
+    this.filterCustomers();
   }
 
   onSearchSubmit(value: string) {
     this.searchTerm = value;
-    console.log('Search submitted:', value);
+    this.filterCustomers();
+  }
+
+  // Nova função para filtrar os clientes
+  filterCustomers() {
+    const term = this.searchTerm.toLowerCase();
+    if (!term) {
+      this.filteredCustomers = this.customers;
+    } else {
+      this.filteredCustomers = this.customers.filter(
+        (customer) =>
+          customer.name.toLowerCase().includes(term) ||
+          customer.cpf.includes(term)
+      );
+    }
   }
 
   validateCPF(cpf: string): boolean {

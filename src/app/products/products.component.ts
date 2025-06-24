@@ -23,6 +23,50 @@ export class ProductsComponent {
       createdAt: "02/06/2025",
       updatedAt: "02/06/2025"
     },
+    {
+      id: "2",
+      name: "Maçã",
+      code: "ABC123DEF456",
+      price: "15",
+      cost: "8",
+      quantity: "10",
+      photo: "url",
+      createdAt: "01/05/2025",
+      updatedAt: "01/05/2025"
+    },
+    {
+      id: "3",
+      name: "Laranja",
+      code: "GHI789JKL012",
+      price: "10",
+      cost: "5",
+      quantity: "12",
+      photo: "url",
+      createdAt: "10/04/2025",
+      updatedAt: "10/04/2025"
+    },
+    {
+      id: "4",
+      name: "Uva",
+      code: "MNO345PQR678",
+      price: "25",
+      cost: "12",
+      quantity: "7",
+      photo: "url",
+      createdAt: "15/06/2025",
+      updatedAt: "15/06/2025"
+    },
+    {
+      id: "5",
+      name: "Abacaxi",
+      code: "STU901VWX234",
+      price: "30",
+      cost: "18",
+      quantity: "3",
+      photo: "url",
+      createdAt: "20/03/2025",
+      updatedAt: "20/03/2025"
+    }
   ];
 
   productModel = {
@@ -131,15 +175,28 @@ export class ProductsComponent {
   // Search functionality
   searchTerm: string = '';
 
+  // Getter para a lista de produtos filtrados
+  get filteredProducts() {
+    if (!this.searchTerm) {
+      return this.products;
+    }
+    const lowerCaseSearchTerm = this.searchTerm.toLowerCase();
+    return this.products.filter(product =>
+      product.name.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.code.toLowerCase().includes(lowerCaseSearchTerm) ||
+      product.id.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+  }
+
   onSearchChange(value: string) {
     this.searchTerm = value;
-    // Aqui você pode implementar lógica de filtro em tempo real
+    // Não precisamos de lógica de filtro adicional aqui, pois o getter faz o trabalho
     console.log('Searching for:', value);
   }
 
   onSearchSubmit(value: string) {
     this.searchTerm = value;
-    // Aqui você pode implementar lógica de pesquisa
+    // Também não precisamos de lógica de pesquisa adicional aqui, o getter lida com isso
     console.log('Search submitted:', value);
   }
 }
