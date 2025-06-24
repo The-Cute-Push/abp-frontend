@@ -16,7 +16,9 @@ registerLocaleData(localePt, 'pt-BR');
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent {  cardStats = [
+export class HomepageComponent {  
+  
+  cardStats = [
     { title: 'Total Produtos', value: '1,247', icon: 'fas fa-box' },
     { title: 'Total Clientes', value: '856', icon: 'fas fa-users' },
     { title: 'Total Fornecedores', value: '134', icon: 'fas fa-building' },
@@ -40,13 +42,6 @@ export class HomepageComponent {  cardStats = [
       { name: 'Produto D', sales: 45 }
     ]
   };
-
-  recentActivities = [
-    { action: 'Novo produto adicionado', time: '2 min atrás', type: 'success' },
-    { action: 'Cliente cadastrado', time: '15 min atrás', type: 'info' },
-    { action: 'Estoque baixo - Produto X', time: '1 hora atrás', type: 'warning' },
-    { action: 'Venda realizada', time: '2 horas atrás', type: 'success' }
-  ];
 
   recentOrders = [
     { id: '001', customer: 'João Silva', product: 'Produto A', quantity: 2, status: 'Entregue', date: '18/06/2025' },
