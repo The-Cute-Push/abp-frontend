@@ -19,7 +19,6 @@ export class ProductsComponent {
       price: "20",
       cost: "10",
       quantity: "4",
-      photo: "url",
       createdAt: "02/06/2025",
       updatedAt: "02/06/2025"
     },
@@ -30,7 +29,6 @@ export class ProductsComponent {
       price: "15",
       cost: "8",
       quantity: "10",
-      photo: "url",
       createdAt: "01/05/2025",
       updatedAt: "01/05/2025"
     },
@@ -41,7 +39,6 @@ export class ProductsComponent {
       price: "10",
       cost: "5",
       quantity: "12",
-      photo: "url",
       createdAt: "10/04/2025",
       updatedAt: "10/04/2025"
     },
@@ -52,7 +49,6 @@ export class ProductsComponent {
       price: "25",
       cost: "12",
       quantity: "7",
-      photo: "url",
       createdAt: "15/06/2025",
       updatedAt: "15/06/2025"
     },
@@ -63,7 +59,6 @@ export class ProductsComponent {
       price: "30",
       cost: "18",
       quantity: "3",
-      photo: "url",
       createdAt: "20/03/2025",
       updatedAt: "20/03/2025"
     }
@@ -76,7 +71,6 @@ export class ProductsComponent {
     price: '',
     cost: '',
     quantity: '',
-    photo: 'url',
     createdAt: '',
     updatedAt: ''
   };
@@ -133,7 +127,6 @@ export class ProductsComponent {
       price: '',
       cost: '',
       quantity: '',
-      photo: 'url',
       createdAt: '',
       updatedAt: ''
     };
