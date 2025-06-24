@@ -131,16 +131,6 @@ table {
     background-color: white;
 }
 
-.box_1 {
-    position: relative;
-    top: 6vh;
-    min-height: 100vh;
-    width: 1200px;
-    background-color: white;
-    margin: auto;
-    padding: 40px 0px;
-}
-
 td, th {
     padding: 8px;
     text-align: left;
