@@ -145,21 +145,6 @@ tr:hover {
     background-color: #2790d6;
 }
 
-footer {
-    background-color: #232222;
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1200px;
-    margin: auto;
-}
-
-footer > p {
-    color: white;
-    top: 100%;
-}
-
 .modal_overlay {
     position: fixed;
     top: 0;

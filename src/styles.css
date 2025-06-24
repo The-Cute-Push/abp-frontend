@@ -8,21 +8,3 @@ body {
   min-height: 100vh;           
   font-family: Arial, Helvetica, sans-serif;         
 }
-
-.header{
-  background-color: #2790d6;
-  position: relative;
-  width: 99%;
-  height: 5vh;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  display: flex;
-  align-items: center;   
-}
-
-.header img {
-  position: absolute;
-  right: 0.5%;
-  width: 35px;
-  height: 35px;
-}
